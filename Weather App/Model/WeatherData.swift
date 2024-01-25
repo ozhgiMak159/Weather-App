@@ -13,9 +13,10 @@ struct WeatherData: Decodable {
     
     var wetherModel: WeatherModel {
         
-        
         return WeatherModel(countryName: name ?? "",
                             temp: Int(main.temp ?? 0),
+                            tempMin: Int(main.temp_min ?? 0),
+                            tempMax: Int(main.temp_max ?? 0),
                             conditionId: weather.first?.id ?? 0,
                             conditionDescription: weather.first?.description ?? "")
     }
@@ -23,6 +24,8 @@ struct WeatherData: Decodable {
 
 struct Main: Decodable {
     let temp: Double?
+    let temp_min: Double?
+    let temp_max: Double?
 }
 
 struct Weather: Decodable {
@@ -34,6 +37,8 @@ struct Weather: Decodable {
 struct WeatherModel {
     let countryName: String
     let temp: Int
+    let tempMin: Int
+    let tempMax: Int
     let conditionId: Int
     let conditionDescription: String
     

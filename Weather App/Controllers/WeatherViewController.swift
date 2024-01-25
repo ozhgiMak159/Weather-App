@@ -12,8 +12,14 @@ import SkeletonView
 class WeatherViewController: UIViewController {
     
     @IBOutlet weak var conditionImageView: UIImageView!
+    
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var temperatureMinLabel: UILabel!
+    @IBOutlet weak var temperatureMaxLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
+    
+    @IBOutlet weak var backgroundView: UIView!
     
     private let weatherManager = WeatherManager()
 
@@ -21,17 +27,16 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         showAnimation()
         fetchWeather()
-       // weatherManager.fetchWeather(city: "London")
     }
     
     private func showAnimation() {
-        for element in [conditionImageView, temperatureLabel, conditionLabel] {
+        for element in [backgroundView, conditionImageView, temperatureLabel, conditionLabel] {
             element?.showAnimatedGradientSkeleton()
         }
     }
     
     private func hideAnimation() {
-        for element in [conditionImageView, temperatureLabel, conditionLabel] {
+        for element in [backgroundView, conditionImageView, temperatureLabel, conditionLabel] {
             element?.hideSkeleton()
         }
         
@@ -39,7 +44,7 @@ class WeatherViewController: UIViewController {
     
     //
     private func fetchWeather() {
-        weatherManager.fetchWeather(city: "Moscow") { [weak self] result in
+        weatherManager.fetchWeather(city: "London") { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -54,9 +59,13 @@ class WeatherViewController: UIViewController {
     private func updateView(with data: WeatherModel) {
         hideAnimation()
         
-        navigationItem.title = data.countryName
+        cityNameLabel.text = data.countryName
         conditionImageView.image = UIImage(named: data.conditionImage)
+        
         temperatureLabel.text = data.temp.toString().appending("°")
+        temperatureMinLabel.text = data.tempMin.toString().appending("°")
+        temperatureMaxLabel.text = data.tempMax.toString().appending("°")
+        
         conditionLabel.text = data.conditionDescription
         
     }

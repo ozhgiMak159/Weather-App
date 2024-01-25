@@ -26,6 +26,7 @@ struct WeatherManager {
                 
                 switch response.result {
                 case .success(let wetherModel):
+                    
                     let model = wetherModel.wetherModel
                     completion(.success(model))
                     
