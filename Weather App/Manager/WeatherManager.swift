@@ -12,7 +12,7 @@ struct WeatherManager {
     
     private let api_Key = "d72b5b51208bad754383e5b46cfa8a42"
     
-    func fetchWeather(city: String, completion: @escaping (Result<WeatherData, Error>) -> Void) {
+    func fetchWeather(city: String, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
         
         guard let query = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
@@ -25,8 +25,9 @@ struct WeatherManager {
             decoder: JSONDecoder() ) { (response) in
                 
                 switch response.result {
-                case .success(let weatherData):
-                    completion(.success(weatherData))
+                case .success(let wetherModel):
+                    let model = wetherModel.wetherModel
+                    completion(.success(model))
                     
                 case .failure(let error):
                     completion(.failure(error))
