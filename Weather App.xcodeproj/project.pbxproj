@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5506C992B625F6F00E3F31F /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5506C982B625F6F00E3F31F /* AddCityViewController.swift */; };
 		B551DD242B62349300FED3AE /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DD232B62349300FED3AE /* WeatherData.swift */; };
 		B551DD272B62367800FED3AE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DD262B62367800FED3AE /* WeatherManager.swift */; };
+		B551DD2A2B624B3300FED3AE /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B551DD292B624B3300FED3AE /* SkeletonView */; };
+		B551DD2D2B62533D00FED3AE /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DD2C2B62533D00FED3AE /* Double+Extension.swift */; };
 		B5EC0E4B2B614BDF0046AFD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC0E4A2B614BDF0046AFD1 /* AppDelegate.swift */; };
 		B5EC0E4D2B614BDF0046AFD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC0E4C2B614BDF0046AFD1 /* SceneDelegate.swift */; };
 		B5EC0E4F2B614BDF0046AFD1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC0E4E2B614BDF0046AFD1 /* WeatherViewController.swift */; };
@@ -19,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5506C982B625F6F00E3F31F /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		B551DD232B62349300FED3AE /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		B551DD262B62367800FED3AE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		B551DD2C2B62533D00FED3AE /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		B5EC0E472B614BDF0046AFD1 /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC0E4A2B614BDF0046AFD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EC0E4C2B614BDF0046AFD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B551DD2A2B624B3300FED3AE /* SkeletonView in Frameworks */,
 				B5EC0E602B615CAF0046AFD1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				B5EC0E4E2B614BDF0046AFD1 /* WeatherViewController.swift */,
+				B5506C982B625F6F00E3F31F /* AddCityViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -91,6 +98,14 @@
 				B551DD262B62367800FED3AE /* WeatherManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		B551DD2B2B62532500FED3AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B551DD2C2B62533D00FED3AE /* Double+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B5EC0E3E2B614BDF0046AFD1 = {
@@ -118,6 +133,7 @@
 				B551DD202B62345D00FED3AE /* View */,
 				B5EC0E532B614BE20046AFD1 /* Assets.xcassets */,
 				B5EC0E582B614BE20046AFD1 /* Info.plist */,
+				B551DD2B2B62532500FED3AE /* Extension */,
 				B551DD1E2B62343600FED3AE /* App */,
 			);
 			path = "Weather App";
@@ -141,6 +157,7 @@
 			name = "Weather App";
 			packageProductDependencies = (
 				B5EC0E5F2B615CAF0046AFD1 /* Alamofire */,
+				B551DD292B624B3300FED3AE /* SkeletonView */,
 			);
 			productName = "Weather App";
 			productReference = B5EC0E472B614BDF0046AFD1 /* Weather App.app */;
@@ -172,6 +189,7 @@
 			mainGroup = B5EC0E3E2B614BDF0046AFD1;
 			packageReferences = (
 				B5EC0E5E2B615CAF0046AFD1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B551DD282B624B3300FED3AE /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = B5EC0E482B614BDF0046AFD1 /* Products */;
 			projectDirPath = "";
@@ -201,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5EC0E4F2B614BDF0046AFD1 /* WeatherViewController.swift in Sources */,
+				B5506C992B625F6F00E3F31F /* AddCityViewController.swift in Sources */,
 				B5EC0E4B2B614BDF0046AFD1 /* AppDelegate.swift in Sources */,
+				B551DD2D2B62533D00FED3AE /* Double+Extension.swift in Sources */,
 				B551DD272B62367800FED3AE /* WeatherManager.swift in Sources */,
 				B551DD242B62349300FED3AE /* WeatherData.swift in Sources */,
 				B5EC0E4D2B614BDF0046AFD1 /* SceneDelegate.swift in Sources */,
@@ -424,6 +444,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B551DD282B624B3300FED3AE /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		B5EC0E5E2B615CAF0046AFD1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -435,6 +463,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B551DD292B624B3300FED3AE /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B551DD282B624B3300FED3AE /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		B5EC0E5F2B615CAF0046AFD1 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5EC0E5E2B615CAF0046AFD1 /* XCRemoteSwiftPackageReference "Alamofire" */;

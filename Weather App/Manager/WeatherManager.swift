@@ -12,7 +12,7 @@ struct WeatherManager {
     
     private let api_Key = "d72b5b51208bad754383e5b46cfa8a42"
     
-    func featherWeather(city: String) {
+    func fetchWeather(city: String, completion: @escaping (Result<WeatherData, Error>) -> Void) {
         
         guard let query = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
@@ -26,9 +26,10 @@ struct WeatherManager {
                 
                 switch response.result {
                 case .success(let weatherData):
-                    print("weatherData: \(weatherData)")
+                    completion(.success(weatherData))
+                    
                 case .failure(let error):
-                    print("error: \(error)")
+                    completion(.failure(error))
                 }
         }
     }
