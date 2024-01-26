@@ -14,7 +14,6 @@ protocol WeatherViewControllerDelegate: AnyObject {
 
 class WeatherViewController: UIViewController {
     
-    
     @IBOutlet weak var conditionImageView: UIImageView!
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -43,10 +42,8 @@ class WeatherViewController: UIViewController {
         for element in [backgroundView, conditionImageView, temperatureLabel, conditionLabel] {
             element?.hideSkeleton()
         }
-        
     }
-    
-    //
+
     private func fetchWeather() {
         weatherManager.fetchWeather(city: "London") { [weak self] result in
             guard let self = self else { return }
@@ -76,6 +73,7 @@ class WeatherViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowAddCity" {
             if let destination = segue.destination as? AddCityViewController {
+              //  destination.addTextTF(str: "Name city")
                 destination.delegate = self
             }
         }
@@ -90,6 +88,7 @@ class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: WeatherViewControllerDelegate {
+    // Тут происходит обновление модели
     func didUpdateWeatherFromSearch(model: WeatherModel) {
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.updateView(with: model)

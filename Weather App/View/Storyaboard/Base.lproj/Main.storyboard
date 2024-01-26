@@ -170,13 +170,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-Xi-AbX">
-                                <rect key="frame" x="16" y="179" width="361" height="193"/>
+                                <rect key="frame" x="42.666666666666657" y="329.66666666666669" width="308" height="193.00000000000006"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="RRV-8m-aw4">
-                                        <rect key="frame" x="60.666666666666686" y="0.66666666666665719" width="240" height="191.66666666666666"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="fjz-uA-tTQ">
+                                        <rect key="frame" x="34" y="15" width="240" height="162.66666666666666"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="bte-4F-cH1">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128.33333333333334"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-Lr-dLG">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="132.33333333333334"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv6-hK-Cq1">
                                                         <rect key="frame" x="75.999999999999972" y="0.0" width="87.666666666666657" height="24"/>
@@ -184,36 +184,45 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kil-Eq-O1a">
-                                                        <rect key="frame" x="0.0" y="42" width="240" height="34"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="240" id="OM0-KC-XGL"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebb-Nh-P7t">
-                                                        <rect key="frame" x="0.0" y="94.000000000000028" width="240" height="34.333333333333343"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="uRf-Nc-DW6"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Search">
-                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="searchButtonTapped:" destination="QDJ-rx-B52" eventType="touchUpInside" id="csq-gL-1AD"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="rGR-JE-hXx">
+                                                        <rect key="frame" x="0.0" y="44.999999999999993" width="240" height="87.333333333333314"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kil-Eq-O1a">
+                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="240" id="OM0-KC-XGL"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebb-Nh-P7t">
+                                                                <rect key="frame" x="0.0" y="53" width="240" height="34.333333333333343"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="uRf-Nc-DW6"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Search">
+                                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </buttonConfiguration>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="searchButtonTapped:" destination="QDJ-rx-B52" eventType="touchUpInside" id="csq-gL-1AD"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="efw-Dh-t7o">
-                                                <rect key="frame" x="109.99999999999999" y="140.33333333333334" width="20.000000000000014" height="20"/>
-                                                <color key="color" red="0.0088879857210000003" green="0.094098396599999995" blue="0.2001742125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </activityIndicatorView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yT-cN-tMx">
-                                                <rect key="frame" x="96.666666666666671" y="172.33333333333334" width="46.666666666666671" height="19.333333333333343"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yT-cN-tMx">
+                                                <rect key="frame" x="52.999999999999986" y="143.33333333333331" width="134" height="19.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="134" id="CAH-CN-5Wi"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -223,22 +232,26 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="RRV-8m-aw4" firstAttribute="centerX" secondItem="Ah1-Xi-AbX" secondAttribute="centerX" id="RuO-fh-nRm"/>
-                                    <constraint firstItem="RRV-8m-aw4" firstAttribute="top" secondItem="Ah1-Xi-AbX" secondAttribute="top" constant="0.67000000000000004" id="ckr-3A-vnw"/>
-                                    <constraint firstAttribute="height" constant="193" id="ubx-oR-9cN"/>
+                                    <constraint firstItem="fjz-uA-tTQ" firstAttribute="centerX" secondItem="Ah1-Xi-AbX" secondAttribute="centerX" id="bxO-mR-oon"/>
+                                    <constraint firstItem="fjz-uA-tTQ" firstAttribute="centerY" secondItem="Ah1-Xi-AbX" secondAttribute="centerY" id="jRQ-IH-mRA"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PaC-pJ-xgc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="width" secondItem="6hM-wO-9Wc" secondAttribute="width" multiplier="0.918575" id="Uul-CV-QKK"/>
-                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="top" secondItem="PaC-pJ-xgc" secondAttribute="top" multiplier="0.7" constant="179" id="eoO-ha-YXm"/>
-                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="centerX" secondItem="6hM-wO-9Wc" secondAttribute="centerX" id="lRp-vl-UtE"/>
+                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="centerY" secondItem="6hM-wO-9Wc" secondAttribute="centerY" id="8AO-jb-bZg"/>
+                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="centerX" secondItem="6hM-wO-9Wc" secondAttribute="centerX" id="Hcg-mW-68m"/>
+                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="width" secondItem="6hM-wO-9Wc" secondAttribute="width" multiplier="0.783715" id="eAa-Vx-U7v"/>
+                            <constraint firstItem="Ah1-Xi-AbX" firstAttribute="height" secondItem="6hM-wO-9Wc" secondAttribute="height" multiplier="0.226526" id="g8R-tM-q2k"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="efw-Dh-t7o" id="Jef-h8-RPy"/>
                         <outlet property="cityTextField" destination="Kil-Eq-O1a" id="A9c-Xv-KdI"/>
                         <outlet property="searchButton" destination="Ebb-Nh-P7t" id="P7k-UR-jdG"/>
                         <outlet property="statusLabel" destination="7yT-cN-tMx" id="BXQ-wH-DPA"/>

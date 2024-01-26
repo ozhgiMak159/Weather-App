@@ -36,8 +36,9 @@ struct WeatherManager {
         
         let path = "https://api.openweathermap.org/data/2.5/weather?q=%@&appid=%@&units=metric"
         let urlString = String(format: path, query, api_Key)
+        // "https://api.openweathermap.org/data/2.5/weather?q=query=api_Key"
         
-       //  Простой способ #1 преобразования ответа.
+       
         AF.request(urlString).validate().responseDecodable(of: WeatherData.self) { (response) in
                 switch response.result {
                 case .success(let wetherModel):
@@ -59,6 +60,7 @@ struct WeatherManager {
            let data = data,
            let failure = try? JSONDecoder().decode(WeatherDataFailure.self, from: data) {
             let message = failure.message
+
             return WeatherError.custom(description: message)
         } else {
             return nil

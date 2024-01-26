@@ -11,8 +11,9 @@ class AddCityViewController: UIViewController {
     
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var statusLabel: UILabel!
+    
+   // private var textTF = "Uknow"
     
     private let weatherManager = WeatherManager()
     
@@ -22,19 +23,23 @@ class AddCityViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupGesture()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
         cityTextField.becomeFirstResponder()
         
     }
     
+//    func addTextTF(str: String) {
+//       // textTF = str
+//        cityTextField.text = textTF
+//    }
+    
     private func setupViews() {
-        view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
+        view.backgroundColor = UIColor(white: 0.6, alpha: 0.8)
         statusLabel.isHidden = true
-        activityIndicatorView.isHidden = true
     }
     
     private func setupGesture() {
@@ -61,16 +66,15 @@ class AddCityViewController: UIViewController {
  
     private func searchForCity(query: String) {
         view.endEditing(true)
-        activityIndicatorView.isHidden = false
-        activityIndicatorView.startAnimating()
+
         
         weatherManager.fetchWeather(city: query) { [weak self] result in
-            self?.activityIndicatorView.stopAnimating()
+           
             switch result {
             case .success(let model):
                 self?.handleSearchSuccess(model: model)
             case .failure(let error):
-                self?.showSearchError(text: "\(error)")
+                self?.showSearchError(text: error.localizedDescription)
             }
         }
     }
