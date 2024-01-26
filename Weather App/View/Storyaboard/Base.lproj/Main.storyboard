@@ -199,9 +199,12 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="uRf-Nc-DW6"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Sherch">
+                                                        <buttonConfiguration key="configuration" style="plain" title="Search">
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="searchButtonTapped:" destination="QDJ-rx-B52" eventType="touchUpInside" id="csq-gL-1AD"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -234,6 +237,12 @@
                             <constraint firstItem="Ah1-Xi-AbX" firstAttribute="centerX" secondItem="6hM-wO-9Wc" secondAttribute="centerX" id="lRp-vl-UtE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="efw-Dh-t7o" id="Jef-h8-RPy"/>
+                        <outlet property="cityTextField" destination="Kil-Eq-O1a" id="A9c-Xv-KdI"/>
+                        <outlet property="searchButton" destination="Ebb-Nh-P7t" id="P7k-UR-jdG"/>
+                        <outlet property="statusLabel" destination="7yT-cN-tMx" id="BXQ-wH-DPA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQM-tj-wA5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

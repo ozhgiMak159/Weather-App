@@ -8,8 +8,12 @@
 import UIKit
 import SkeletonView
 
+protocol WeatherViewControllerDelegate: AnyObject {
+    func didUpdateWeatherFromSearch(model: WeatherModel)
+}
 
 class WeatherViewController: UIViewController {
+    
     
     @IBOutlet weak var conditionImageView: UIImageView!
     
@@ -67,7 +71,14 @@ class WeatherViewController: UIViewController {
         temperatureMaxLabel.text = data.tempMax.toString().appending("°")
         
         conditionLabel.text = data.conditionDescription
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowAddCity" {
+            if let destination = segue.destination as? AddCityViewController {
+                destination.delegate = self
+            }
+        }
     }
     
     @IBAction func addCityButtonTapped() {
@@ -76,7 +87,13 @@ class WeatherViewController: UIViewController {
     
     @IBAction func locationButtonTapped() {}
     
-
-
 }
 
+extension WeatherViewController: WeatherViewControllerDelegate {
+    func didUpdateWeatherFromSearch(model: WeatherModel) {
+        presentedViewController?.dismiss(animated: true) { [weak self] in
+            self?.updateView(with: model)
+        }
+    }
+}
+    
