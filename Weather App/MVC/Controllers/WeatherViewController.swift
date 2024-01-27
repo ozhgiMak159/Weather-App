@@ -14,6 +14,7 @@ protocol WeatherViewControllerDelegate: AnyObject {
 
 class WeatherViewController: UIViewController {
     
+    // MARK: IB Outlet
     @IBOutlet weak var conditionImageView: UIImageView!
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -24,14 +25,33 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     
+    // MARK: Private Properties
     private let weatherManager = WeatherManager()
 
+    // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnimation()
         fetchWeather()
     }
     
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowAddCity" {
+            if let destination = segue.destination as? AddCityViewController {
+                destination.delegate = self
+            }
+        }
+    }
+    
+    // MARK: IB Action
+    @IBAction func addCityButtonTapped() {
+        performSegue(withIdentifier: "ShowAddCity", sender: nil)
+    }
+    
+    @IBAction func locationButtonTapped() {}
+    
+    // MARK: Private Methods
     private func showAnimation() {
         for element in [backgroundView, conditionImageView, temperatureLabel, conditionLabel] {
             element?.showAnimatedGradientSkeleton()
@@ -69,24 +89,10 @@ class WeatherViewController: UIViewController {
         
         conditionLabel.text = data.conditionDescription
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowAddCity" {
-            if let destination = segue.destination as? AddCityViewController {
-              //  destination.addTextTF(str: "Name city")
-                destination.delegate = self
-            }
-        }
-    }
-    
-    @IBAction func addCityButtonTapped() {
-        performSegue(withIdentifier: "ShowAddCity", sender: nil)
-    }
-    
-    @IBAction func locationButtonTapped() {}
-    
+        
 }
 
+// MARK: WeatherViewControllerDelegate
 extension WeatherViewController: WeatherViewControllerDelegate {
     // Тут происходит обновление модели
     func didUpdateWeatherFromSearch(model: WeatherModel) {

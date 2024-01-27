@@ -65,7 +65,5 @@ struct WeatherManager {
         } else {
             return nil
         }
-        
-        
     }
 }
