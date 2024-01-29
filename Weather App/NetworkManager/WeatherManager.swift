@@ -25,33 +25,36 @@ enum WeatherError: Error, LocalizedError {
     }
 }
 
-
 struct WeatherManager {
     
     private let api_Key = "d72b5b51208bad754383e5b46cfa8a42"
     
+    func fetchWeather1(lat: Double, lon: Double, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
+        let path = "https://api.openweathermap.org/data/2.5/weather?appid=%@&units=metric&lat=%f&lon=%f"
+        let urlString = String(format: path, api_Key, lat, lon)
+        handleRequest(urlString: urlString, completion: completion)
+    }
+
     func fetchWeather(city: String, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
-        
         guard let query = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
-        
         let path = "https://api.openweathermap.org/data/2.5/weather?q=%@&appid=%@&units=metric"
         let urlString = String(format: path, query, api_Key)
-        // "https://api.openweathermap.org/data/2.5/weather?q=query=api_Key"
-        
-       
+        handleRequest(urlString: urlString, completion: completion)
+    }
+    
+    private func handleRequest(urlString: String, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
         AF.request(urlString).validate().responseDecodable(of: WeatherData.self) { (response) in
-                switch response.result {
-                case .success(let wetherModel):
-                    let model = wetherModel.wetherModel
-                    completion(.success(model))
-
-                case .failure(let error):
-                    if let errorCust = getWeatherError(error: error, data: response.data) {
-                        completion(.failure(errorCust))
-                    } else {
-                        completion(.failure(error))
-                    }
+            switch response.result {
+            case .success(let wetherModel):
+                let model = wetherModel.wetherModel
+                completion(.success(model))
+            case .failure(let error):
+                if let errorCust = getWeatherError(error: error, data: response.data) {
+                    completion(.failure(errorCust))
+                } else {
+                    completion(.failure(error))
                 }
+            }
         }
     }
     
@@ -60,7 +63,7 @@ struct WeatherManager {
            let data = data,
            let failure = try? JSONDecoder().decode(WeatherDataFailure.self, from: data) {
             let message = failure.message
-
+            
             return WeatherError.custom(description: message)
         } else {
             return nil

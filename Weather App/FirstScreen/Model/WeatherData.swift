@@ -53,6 +53,5 @@ struct WeatherModel {
         case 800: return "imClear"
         default: return "imClouds"
         }
-        
     }
 }
